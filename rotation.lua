@@ -11,11 +11,19 @@
 intoBrew = { }
 
 function intoBrew.touchdeath ()
+	local GlyphSockets = NUM_GLYPH_SLOTS
 	if IsSpellKnown(115080)
 		and UnitHealth("target") <= UnitHealth("player") 
 		and not UnitIsPlayer("target")
-		and UnitPower("player",12) >= 3
-		then return true
+		then
+			for i=1, GlyphSockets do
+				if select(4, GetGlyphSocketInfo(i)) == 123391
+					then return true
+				end
+			end
+		if UnitPower("player",12) >= 3
+			then return true
+		end
  	 end	
 end
 
@@ -70,6 +78,10 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
  	{ "Dizzying Haze", "modifier.lalt", "ground" }, -- Dizzying Haze
  	{ "Summon Black Ox Statue", "modifier.rcontrol", "ground" }, -- Black Ox Statue
  	{ "Clash", "modifier.lcontrol", "target"},
+ 	{ "Ring of Peace", "modifier.rshift"},
+ 	{ "Charging Ox Wave", "modifier.rshift"},
+ 	{ "Leg Sweep", "modifier.rshift"},
+
 --Buff
 	{ "Legacy of the Emperor", {
 		"!player.buff(Legacy of the Emperor)",
@@ -105,9 +117,12 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 	{ "Invoke Xuen, the White Tiger", "modifier.cooldowns"},
 
 -- Rotation
+	--Touch of Death
+	{ "Touch of Death", (function() return intoBrew.touchdeath() end) },
 	-- Keg Smash on CD
 	{ "Keg Smash" },
 	-- Blackout Kick 
+	--[[	{ "Blackout Kick" },]]--
 	{{
 		{ "Blackout Kick", "!player.buff(Shuffle)"},
 		{ "Blackout Kick", "player.buff(Shuffle).duration < 3"},
@@ -135,8 +150,7 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 	}}, 	
 	-- Jab 
 	{ "Jab", "player.energy >= 40"},
-	--Touch of Death
-	{ "Touch of Death", (function() return intoBrew.touchdeath() end) },
+	
 	
 
 

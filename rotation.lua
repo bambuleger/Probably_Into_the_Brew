@@ -123,6 +123,7 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 	{ "Keg Smash" },
 	-- Blackout Kick 
 	--[[	{ "Blackout Kick" },]]--
+	{ "Blackout Kick", { "!player.buff(Shuffle)", "player.chi >= 2"} },
 	{{
 		{ "Blackout Kick", "!player.buff(Shuffle)"},
 		{ "Blackout Kick", "player.buff(Shuffle).duration < 3"},

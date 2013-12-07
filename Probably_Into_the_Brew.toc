@@ -1,6 +1,7 @@
 ## Interface: 50400
-## Title: Probably - Into the Brew
+## Title: Probably - |cFF32ff84Into the Brew
 ## Notes: ProbablyEngine Custom Brewmaster Monk
 ## Dependencies: Probably
 
+functions.lua
 rotation.lua

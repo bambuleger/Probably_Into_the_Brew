@@ -1,0 +1,45 @@
+-- Spell IDs
+--Blackout Kick 			100784
+--Breath of Fire 			115181
+--Dizzying Haze 			115180
+--Expel Harm 				115072
+--Jab 						100780
+--Keg Smash					121253
+--Spinning Crane Kick 		101546
+--Rushing Jade Wind 		116847
+--Tiger Palm 				100787
+--Touch of Death 			115080
+--Xuen						123904
+
+--Clash 					122057
+--Detox 					115450
+--Healing Sphere 			115460
+--Legacy of the Emperor 	115921 (spell) 117666 (buff)
+--Paralysis 				115078
+--Provoke 					115546
+--Roll 						109132
+--Spear Hand Strike 		116705
+--Summon Black Ox Statue 	115315
+--Transcendence 			101643
+--Transcendence: Transfer 	119996
+--Shuffle					115307
+
+--Avert harm 				115213
+--Elusive Brew 				115308
+--Fortifying Brew 			115203
+--Grapple Weapon 			117368
+--Guard 					123402
+--Nimble Brew 				137562
+--Purifying Brew 			119582
+--Zen Meditation 			115176
+--Chi Wave					115098
+--Chi Burst					123986
+--Zen Sphere				124081
+--Tiger Power				125359
+--Ring of Peace				116844
+--Charging Ox Wave			119392
+--Leg Sweep					119381
+--Grapple Weapon			117368
+--Light Stagger
+--Moderate Stagger
+--Heavy Stagger

@@ -11,6 +11,7 @@
 -- Initialize tables
 if not intoBrew then intoBrew = {} end
 
+
 --[[local playerName = UnitName("player")
 
 StaticPopupDialogs["welcome"] = {
@@ -36,7 +37,7 @@ StaticPopup_Show ("welcome")]]--
         USE_AOE = ProbablyEngine.config.data.button_states.multitarget
         USE_INTRPT = ProbablyEngine.config.data.button_states.interrupt
                
-       --[[if  (key == "RSHIFT" and isDown == 1) then --cooldowns toggle
+       if  (key == "RSHIFT" and isDown == 1) then --cooldowns toggle
                 if USE_CDS then 
                         USE_CDS = false 
                         print("Cooldowns: |cFFFF0000Disabled")        
@@ -46,9 +47,9 @@ StaticPopup_Show ("welcome")]]--
                         print("Cooldowns: |cFF00FF00Enabled")
                         ProbablyEngine.buttons.toggle('cooldowns')
                 end
-        end  ]]--  
+        end    
 
-        --[[if  (key == "LCTRL" and isDown == 1) then  --aoe toggle
+        if  (key == "LCTRL" and isDown == 1) then  --aoe toggle
                 if USE_AOE then
                         USE_AOE = false
                         print("AoE: |cFFFF0000Disabled")

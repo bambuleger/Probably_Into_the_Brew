@@ -11,7 +11,7 @@
 -- Initialize tables
 if not intoBrew then intoBrew = {} end
 
-local playerName = UnitName("player")
+--[[local playerName = UnitName("player")
 
 StaticPopupDialogs["welcome"] = {
         maxLetters = 1200,
@@ -27,10 +27,10 @@ StaticPopupDialogs["welcome"] = {
     hideOnEscape = true,
     preferredIndex = 3,  
 }
-StaticPopup_Show ("welcome")
+StaticPopup_Show ("welcome")]]--
 
 -- Thank you Mavmins for the code
-ProbablyEngine.listener.register("intoBrew", "MODIFIER_STATE_CHANGED", function(...)
+--[[ProbablyEngine.listener.register("intoBrew", "MODIFIER_STATE_CHANGED", function(...)
         local key                        = select(1, ...)
         local isDown                = select(2, ...)
         USE_AOE = ProbablyEngine.config.data.button_states.multitarget
@@ -48,7 +48,7 @@ ProbablyEngine.listener.register("intoBrew", "MODIFIER_STATE_CHANGED", function(
                 end
         end  ]]--  
 
-        if  (key == "LCTRL" and isDown == 1) then  --aoe toggle
+        --[[if  (key == "LCTRL" and isDown == 1) then  --aoe toggle
                 if USE_AOE then
                         USE_AOE = false
                         print("AoE: |cFFFF0000Disabled")
@@ -71,7 +71,7 @@ ProbablyEngine.listener.register("intoBrew", "MODIFIER_STATE_CHANGED", function(
                         ProbablyEngine.buttons.toggle('interrupt')
                 end
         end       
-end)
+end)]]--
  
 function intoBrew.touchdeath ()
     local GlyphSockets = NUM_GLYPH_SLOTS

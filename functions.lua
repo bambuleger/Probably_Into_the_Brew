@@ -1,7 +1,7 @@
 --[[
     =======================================================
                          Into the Brew
-                             v1.3
+                             v1.4
     =======================================================
                 Brewmaster Monk Rotation for PE            
     https://probablyengine.com/forum/viewtopic.php?id=189
@@ -10,7 +10,6 @@
 
 -- Initialize tables
 if not intoBrew then intoBrew = {} end
-
 
 --[[local playerName = UnitName("player")
 

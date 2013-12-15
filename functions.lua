@@ -119,7 +119,7 @@ ProbablyEngine.command.register('into', function(msg, box)
   end
 
   if command == 'def' then
-    if ProbablyEngine.toggle.states.guard then
+    if ProbablyEngine.toggle.states.def then
       ProbablyEngine.buttons.toggle('def')
       itb:message("|cFFB30000Defensive Cooldowns off")
     else

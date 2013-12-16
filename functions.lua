@@ -168,6 +168,12 @@ ProbablyEngine.command.register('into', function(msg, box)
   elseif command == "qAvert" or command == 115213 then
     intoBrew.queueSpell = 115213
     itb:message("Avert Harm queued")
+  elseif command == "qPara" or command == 115078 then
+    intoBrew.queueSpell = 115078
+    itb:message("Paralysis (mouseover) queued")
+  elseif command == "qOx" or command == 115315 then
+    intoBrew.queueSpell = 115315
+    itb:message("Statue of the Ox queued")
   elseif command == "qTfour" then
     if select(2,GetTalentRowSelectionInfo(4)) == 10 then
         intoBrew.queueSpell = 116844
@@ -196,7 +202,7 @@ end)
 -- Spell Queue Check -- thank you merq for basic code ----------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
 intoBrew.checkQueue = function (spellId)
-    if (GetTime() - intoBrew.queueTime) > 4 then
+    if (GetTime() - intoBrew.queueTime) > 10 then
         intoBrew.queueTime = 0
         intoBrew.queueSpell = nil
     return false

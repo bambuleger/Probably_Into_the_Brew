@@ -41,6 +41,8 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 	{ "!122280", "@intoBrew.checkQueue(122280)" },
 	{ "!122278", "@intoBrew.checkQueue(122278)" },
 	{ "!122783", "@intoBrew.checkQueue(122783)" },
+	{ "!115078", "@intoBrew.checkQueue(115078)", "mouseover" },
+	{ "!115315", "@intoBrew.checkQueue(115315)", "ground" },
 -----------------------------------------------------------------------------------------------------------------------------
 -- Interrupts --------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -51,8 +53,9 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "115098", { "player.spell(115098).exists", "player.health < 85" }}, -- Chi Wave
 	{ "123986", { "player.spell(123986).exists", "player.health < 85" }}, -- Chi Burst
-	{ "124081", { "player.spell(124081).exists", "!player.buff(124081)" }, "player"}, -- Zen Sphere on player
 	{ "124081", { "player.spell(124081).exists", "player.buff(124081)" }, "focus"}, -- Zen Sphere on focus if already on player
+	{ "124081", { "player.spell(124081).exists", "!player.buff(124081)" }, "player"}, -- Zen Sphere on player
+	
 	{ "!/run UseItemByName(5512)", "@intoBrew.Healthstone"}, --Healthstone
 -----------------------------------------------------------------------------------------------------------------------------
 -- Stagger ------------------------------------------------------------------------------------------------------------------ 

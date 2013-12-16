@@ -293,9 +293,8 @@ end
 -----------------------------------------------------------------------------------------------------------------------------
 -- Healthstone -------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
-local PlayerHP = 100 * UnitHealth("player") / UnitHealthMax("player")
-
 function intoBrew.Healthstone(...)
+    local PlayerHP = 100 * UnitHealth("player") / UnitHealthMax("player")
     if PlayerHP < 40
     and GetItemCount(5512,false,false) > 0 
     and ( select(2, GetItemCooldown(5512)) == 0 ) then

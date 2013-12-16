@@ -51,7 +51,8 @@ ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "115098", { "player.spell(115098).exists", "player.health < 85" }}, -- Chi Wave
 	{ "123986", { "player.spell(123986).exists", "player.health < 85" }}, -- Chi Burst
-	{ "124081", { "player.spell(124081).exists", "!player.buff(124081)" }}, -- Zen Sphere on player
+	{ "124081", { "player.spell(124081).exists", "!player.buff(124081)" }, "player"}, -- Zen Sphere on player
+	{ "124081", { "player.spell(124081).exists", "player.buff(124081)" }, "focus"}, -- Zen Sphere on focus if already on player
 	{ "!/run UseItemByName(5512)", "@intoBrew.Healthstone"}, --Healthstone
 -----------------------------------------------------------------------------------------------------------------------------
 -- Stagger ------------------------------------------------------------------------------------------------------------------ 

@@ -71,71 +71,89 @@ ProbablyEngine.command.register('into', function(msg, box)
 -- Toggle -------------------------------------------------------------------------------------------------------------------
   if command == 'toggle' then
     if ProbablyEngine.toggle.states.MasterToggle then
-        ProbablyEngine.buttons.toggle('MasterToggle')
+        --ProbablyEngine.buttons.toggle('MasterToggle')
+        ProbablyEngine.buttons.buttons['MasterToggle']:Click()
         itb:message("|cFFB30000Into the Brew off")
     else
-        ProbablyEngine.buttons.toggle('MasterToggle')
+        --ProbablyEngine.buttons.toggle('MasterToggle')
+        ProbablyEngine.buttons.buttons['MasterToggle']:Click()
         itb:message("|cFF00B34AInto the Brew on")
     end
   end
   if command == 'kick' then
     if ProbablyEngine.toggle.states.interrupt then
-      ProbablyEngine.buttons.toggle('interrupt')
+      --ProbablyEngine.buttons.toggle('interrupt')
+      ProbablyEngine.buttons.buttons['interrupt']:Click()
       itb:message("|cFFB30000Interrupts off")
     else
-      ProbablyEngine.buttons.toggle('interrupt')
+      --ProbablyEngine.buttons.toggle('interrupt')
+      ProbablyEngine.buttons.buttons['interrupt']:Click()
       itb:message("|cFF00B34AInterrupts on")
     end
   end
 
   if command == 'xuen' then
     if ProbablyEngine.toggle.states.cooldowns then
-      ProbablyEngine.buttons.toggle('cooldowns')
+      --ProbablyEngine.buttons.toggle('cooldowns')
+      ProbablyEngine.buttons.buttons['cooldowns']:Click()
       itb:message("|cFFB30000Xuen off")
     else
-      ProbablyEngine.buttons.toggle('cooldowns')
+      --ProbablyEngine.buttons.toggle('cooldowns')
+      ProbablyEngine.buttons.buttons['cooldowns']:Click()
       itb:message("|cFF00B34AXuen on")
     end
   end
 
   if command == 'aoe' then
     if ProbablyEngine.toggle.states.multitarget then
-      ProbablyEngine.buttons.toggle('multitarget')
+      --ProbablyEngine.buttons.toggle('multitarget')
+      ProbablyEngine.buttons.buttons['multitarget']:Click()
       itb:message("|cFFB30000AoE off")
     else
-      ProbablyEngine.buttons.toggle('multitarget')
+      --ProbablyEngine.buttons.toggle('multitarget')
+      ProbablyEngine.buttons.buttons['multitarget']:Click()
       itb:message("|cFF00B34AAoE on")
     end
   end
   
   if command == 'taunt' then
     if ProbablyEngine.toggle.states.taunt then
-      ProbablyEngine.buttons.toggle('taunt')
+      --ProbablyEngine.buttons.toggle('taunt')
+      ProbablyEngine.buttons.buttons['taunt']:Click()
       itb:message("|cFFB30000SoO Auto Taunt off")
     else
-      ProbablyEngine.buttons.toggle('taunt')
+      --ProbablyEngine.buttons.toggle('taunt')
+      ProbablyEngine.buttons.buttons['taunt']:Click()
       itb:message("|cFF00B34ASoO Auto Taunt on")
     end
   end
 
   if command == 'def' then
     if ProbablyEngine.toggle.states.def then
-      ProbablyEngine.buttons.toggle('def')
+      --ProbablyEngine.buttons.toggle('def')
+      ProbablyEngine.buttons.buttons['def']:Click()
       itb:message("|cFFB30000Defensive Cooldowns off")
     else
-      ProbablyEngine.buttons.toggle('def')
+      --ProbablyEngine.buttons.toggle('def')
+      ProbablyEngine.buttons.buttons['def']:Click()
       itb:message("|cFF00B34ADefensive Cooldowns on")
     end
   end
 
   if command == 'ksmash' then
     if ProbablyEngine.toggle.states.kegsmash then
-      ProbablyEngine.buttons.toggle('kegsmash')
+      --ProbablyEngine.buttons.toggle('kegsmash')
+      ProbablyEngine.buttons.buttons['kegsmash']:Click()
       itb:message("|cFFB30000Keg Smash off")
     else
-      ProbablyEngine.buttons.toggle('kegsmash')
+      --ProbablyEngine.buttons.toggle('kegsmash')
+      ProbablyEngine.buttons.buttons['kegsmash']:Click()
       itb:message("|cFF00B34AKeg Smash on")
     end
+  end
+
+  if command == 'macros' then
+    intoBrew.createAllMacros()
   end
 -- Spell Queue -- thank you merq for basic code -----------------------------------------------------------------------------
   if command == "qGuard" or command == 123402 then
@@ -195,6 +213,29 @@ intoBrew.checkQueue = function (spellId)
     end
     return false
 end
+-----------------------------------------------------------------------------------------------------------------------------
+-- Create Macros ----------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------------------------------------------------
+function intoBrew.createAllMacros( ... )
+  local usedslots = select(2,GetNumMacros())
+  if usedslots <= 5 then
+    CreateMacro("toggle", "PANDARENRACIAL_INNERPEACE", "/into toggle", 1, 1)
+    CreateMacro("kick", "INV_MISC_QUESTIONMARK", "#showtooltip Spear Hand Strike\n/into kick", 1, 1)
+    CreateMacro("xuen", "INV_MISC_QUESTIONMARK", "#showtooltip Invoke Xuen, the White Tiger\n/into xuen", 1, 1)
+    CreateMacro("aoe", "Ability_warlock_jinx", "/into aoe", 1, 1)
+    CreateMacro("ksmash", "ACHIEVEMENT_BREWERY_2", "#showtooltip Keg Smash\n/into ksmash", 1, 1)
+    CreateMacro("taunt", "Spell_Magic_PolymorphRabbit", "/into taunt", 1, 1)
+    CreateMacro("def", "INV_SummerFest_Symbol_Medium", "/into def", 1, 1)
+    CreateMacro("qGuard", "INV_MISC_QUESTIONMARK", "#showtooltip Guard\n/into qGuard", 1, 1)
+    CreateMacro("qBrew", "INV_MISC_QUESTIONMARK", "#showtooltip Fortifying Brew\n/into qBrew", 1, 1)
+    CreateMacro("qZen", "INV_MISC_QUESTIONMARK", "#showtooltip Zen Meditation\n/into qZen", 1, 1)
+    CreateMacro("qAvert", "INV_MISC_QUESTIONMARK", "#showtooltip Avert Harm\n/into qAvert", 1, 1)
+    CreateMacro("qTfour", "ability_parry", "/into qTfour", 1, 1)
+    CreateMacro("qTfive", "ability_parry", "/into qTfive", 1, 1)
+  else
+    print("You don't have enough free Macroslots")
+  end
+end  
 -----------------------------------------------------------------------------------------------------------------------------
 -- Touch of Death ----------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------

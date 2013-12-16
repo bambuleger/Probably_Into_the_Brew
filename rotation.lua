@@ -1,7 +1,7 @@
 --[[
 	=======================================================
 	                     Into the Brew
-	                         v1.5
+	                         v1.6
 	=======================================================
 	            Brewmaster Monk Rotation for PE            
 	https://probablyengine.com/forum/viewtopic.php?id=189

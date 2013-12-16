@@ -1,7 +1,7 @@
 --[[
     =======================================================
                          Into the Brew
-                             v1.5
+                             v1.6
     =======================================================
                 Brewmaster Monk Rotation for PE            
     https://probablyengine.com/forum/viewtopic.php?id=189
@@ -225,7 +225,6 @@ end
 function intoBrew.createAllMacros( ... )
   local usedslots = select(2,GetNumMacros())
   if usedslots <= 5 then
-    CreateMacro("toggle", "PANDARENRACIAL_INNERPEACE", "/into toggle", 1, 1)
     CreateMacro("kick", "INV_MISC_QUESTIONMARK", "#showtooltip Spear Hand Strike\n/into kick", 1, 1)
     CreateMacro("xuen", "INV_MISC_QUESTIONMARK", "#showtooltip Invoke Xuen, the White Tiger\n/into xuen", 1, 1)
     CreateMacro("aoe", "Ability_warlock_jinx", "/into aoe", 1, 1)
@@ -238,6 +237,7 @@ function intoBrew.createAllMacros( ... )
     CreateMacro("qAvert", "INV_MISC_QUESTIONMARK", "#showtooltip Avert Harm\n/into qAvert", 1, 1)
     CreateMacro("qTfour", "ability_parry", "/into qTfour", 1, 1)
     CreateMacro("qTfive", "ability_parry", "/into qTfive", 1, 1)
+    CreateMacro("qPara", "INV_MISC_QUESTIONMARK", "#showtooltip Paralysis\n/into qPara", 1, 1)
   else
     print("You don't have enough free Macroslots")
   end

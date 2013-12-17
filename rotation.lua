@@ -4,12 +4,12 @@
 	                         v1.6
 	=======================================================
 	            Brewmaster Monk Rotation for PE            
-	https://probablyengine.com/forum/viewtopic.php?id=189
+	 https://probablyengine.com/forum/viewtopic.php?id=189
 	=======================================================
 ]]--
 
 
-ProbablyEngine.rotation.register_custom(268, "Into the Brew", {
+ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 
 -----------------------------------------------------------------------------------------------------------------------------
 -- Hotkeys ------------------------------------------------------------------------------------------------------------------ 

@@ -155,6 +155,10 @@ ProbablyEngine.command.register('into', function(msg, box)
   if command == 'macros' then
     intoBrew.createAllMacros()
   end
+
+  if command == 'help' then
+    intoBrew.macroHelp()
+  end
 -- Spell Queue -- thank you merq for basic code -----------------------------------------------------------------------------
   if command == "qGuard" or command == 123402 then
     intoBrew.queueSpell = 123402
@@ -220,7 +224,7 @@ intoBrew.checkQueue = function (spellId)
     return false
 end
 -----------------------------------------------------------------------------------------------------------------------------
--- Create Macros ----------------------------------------------------------------------- 
+-- Create Macros ------------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
 function intoBrew.createAllMacros( ... )
   local usedslots = select(2,GetNumMacros())
@@ -241,6 +245,16 @@ function intoBrew.createAllMacros( ... )
   else
     print("You don't have enough free Macroslots")
   end
+end  
+-----------------------------------------------------------------------------------------------------------------------------
+-- Create Help Message ------------------------------------------------------------------------------------------------------------ 
+-----------------------------------------------------------------------------------------------------------------------------
+function intoBrew.macroHelp( ... )
+  print("|cFF32ff84Into the Brew |rv1.6")
+  print("|cFF32ff84Commands:|r\n/into macros - Create all Toggle / Spellqueue Macros")
+  print("|cFF32ff84Toggle Macros:|r\n/into toggle - Rotation on/off\n/into kick - Interrupt & Disarm on/off\n/into xuen - Xuen on/off\n/into aoe - Multitarget-Rotation on/off\n/into ksmash - Keg Smash on/off (to avoid Cleavedamage)\n/into taunt - SoO Auto Taunt Events on/off\n/into def - Auto Defensive Cooldowns on/off")
+  print("|cFF32ff84Queue Macros:|r\n/into qGuard | qBrew | qZen | qAvert | qTfour | qTfive | qPara")
+  print("|cFF32ff84Additional Help:|r\nhttp://tinyurl.com/intobrew")
 end  
 -----------------------------------------------------------------------------------------------------------------------------
 -- Touch of Death ----------------------------------------------------------------------------------------------------------- 

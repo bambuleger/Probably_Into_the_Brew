@@ -70,84 +70,84 @@ ProbablyEngine.command.register('into', function(msg, box)
   local command, text = msg:match("^(%S*)%s*(.-)$")
 -- Toggle -------------------------------------------------------------------------------------------------------------------
   if command == 'toggle' then
-    if ProbablyEngine.toggle.states.MasterToggle then
-        --ProbablyEngine.buttons.toggle('MasterToggle')
-        ProbablyEngine.buttons.buttons['MasterToggle']:Click()
+    if ProbablyEngine.config.read('button_states', 'MasterToggle', false) then
+        ProbablyEngine.buttons.toggle('MasterToggle')
+        --ProbablyEngine.buttons.buttons['MasterToggle']:Click()
         itb:message("|cFFB30000Into the Brew off")
     else
-        --ProbablyEngine.buttons.toggle('MasterToggle')
-        ProbablyEngine.buttons.buttons['MasterToggle']:Click()
+        ProbablyEngine.buttons.toggle('MasterToggle')
+        --ProbablyEngine.buttons.buttons['MasterToggle']:Click()
         itb:message("|cFF00B34AInto the Brew on")
     end
   end
   if command == 'kick' then
-    if ProbablyEngine.toggle.states.interrupt then
-      --ProbablyEngine.buttons.toggle('interrupt')
-      ProbablyEngine.buttons.buttons['interrupt']:Click()
+    if ProbablyEngine.config.read('button_states', 'interrupt', false) then
+      ProbablyEngine.buttons.toggle('interrupt')
+      --ProbablyEngine.buttons.buttons['interrupt']:Click()
       itb:message("|cFFB30000Interrupts off")
     else
-      --ProbablyEngine.buttons.toggle('interrupt')
-      ProbablyEngine.buttons.buttons['interrupt']:Click()
+      ProbablyEngine.buttons.toggle('interrupt')
+      --ProbablyEngine.buttons.buttons['interrupt']:Click()
       itb:message("|cFF00B34AInterrupts on")
     end
   end
 
   if command == 'xuen' then
-    if ProbablyEngine.toggle.states.cooldowns then
-      --ProbablyEngine.buttons.toggle('cooldowns')
-      ProbablyEngine.buttons.buttons['cooldowns']:Click()
+    if ProbablyEngine.config.read('button_states', 'cooldowns', false) then
+      ProbablyEngine.buttons.toggle('cooldowns')
+      --ProbablyEngine.buttons.buttons['cooldowns']:Click()
       itb:message("|cFFB30000Xuen off")
     else
-      --ProbablyEngine.buttons.toggle('cooldowns')
-      ProbablyEngine.buttons.buttons['cooldowns']:Click()
+      ProbablyEngine.buttons.toggle('cooldowns')
+      --ProbablyEngine.buttons.buttons['cooldowns']:Click()
       itb:message("|cFF00B34AXuen on")
     end
   end
 
   if command == 'aoe' then
-    if ProbablyEngine.toggle.states.multitarget then
-      --ProbablyEngine.buttons.toggle('multitarget')
-      ProbablyEngine.buttons.buttons['multitarget']:Click()
+    if ProbablyEngine.config.read('button_states', 'multitarget', false) then
+      ProbablyEngine.buttons.toggle('multitarget')
+      --ProbablyEngine.buttons.buttons['multitarget']:Click()
       itb:message("|cFFB30000AoE off")
     else
-      --ProbablyEngine.buttons.toggle('multitarget')
-      ProbablyEngine.buttons.buttons['multitarget']:Click()
+      ProbablyEngine.buttons.toggle('multitarget')
+      --ProbablyEngine.buttons.buttons['multitarget']:Click()
       itb:message("|cFF00B34AAoE on")
     end
   end
   
   if command == 'taunt' then
-    if ProbablyEngine.toggle.states.taunt then
-      --ProbablyEngine.buttons.toggle('taunt')
-      ProbablyEngine.buttons.buttons['taunt']:Click()
+    if ProbablyEngine.config.read('button_states', 'taunt', false) then
+      ProbablyEngine.buttons.toggle('taunt')
+      --ProbablyEngine.buttons.buttons['taunt']:Click()
       itb:message("|cFFB30000SoO Auto Taunt off")
     else
-      --ProbablyEngine.buttons.toggle('taunt')
-      ProbablyEngine.buttons.buttons['taunt']:Click()
+      ProbablyEngine.buttons.toggle('taunt')
+      --ProbablyEngine.buttons.buttons['taunt']:Click()
       itb:message("|cFF00B34ASoO Auto Taunt on")
     end
   end
 
   if command == 'def' then
-    if ProbablyEngine.toggle.states.def then
-      --ProbablyEngine.buttons.toggle('def')
-      ProbablyEngine.buttons.buttons['def']:Click()
+    if ProbablyEngine.config.read('button_states', 'def', false) then
+      ProbablyEngine.buttons.toggle('def')
+      --ProbablyEngine.buttons.buttons['def']:Click()
       itb:message("|cFFB30000Defensive Cooldowns off")
     else
-      --ProbablyEngine.buttons.toggle('def')
-      ProbablyEngine.buttons.buttons['def']:Click()
+      ProbablyEngine.buttons.toggle('def')
+      --ProbablyEngine.buttons.buttons['def']:Click()
       itb:message("|cFF00B34ADefensive Cooldowns on")
     end
   end
 
   if command == 'ksmash' then
-    if ProbablyEngine.toggle.states.kegsmash then
-      --ProbablyEngine.buttons.toggle('kegsmash')
-      ProbablyEngine.buttons.buttons['kegsmash']:Click()
+    if ProbablyEngine.config.read('button_states', 'kegsmash', false) then
+      ProbablyEngine.buttons.toggle('kegsmash')
+      --ProbablyEngine.buttons.buttons['kegsmash']:Click()
       itb:message("|cFFB30000Keg Smash off")
     else
-      --ProbablyEngine.buttons.toggle('kegsmash')
-      ProbablyEngine.buttons.buttons['kegsmash']:Click()
+      ProbablyEngine.buttons.toggle('kegsmash')
+      --ProbablyEngine.buttons.buttons['kegsmash']:Click()
       itb:message("|cFF00B34AKeg Smash on")
     end
   end

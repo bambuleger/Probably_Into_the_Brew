@@ -22,10 +22,10 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "115921", -- Legacy of the Emperor
     	{
-      	"!player.buff(117666).any", -- Legacy of the Emperor Buff
-      	"!player.buff(1126).any", -- Mark of the Wild
-      	"!player.buff(90363).any", -- Embrace of the Shale Spider
-      	"!player.buff(20217).any" -- Blessing of Kings
+      	"!player.buff(117666)", -- Legacy of the Emperor Buff
+      	"!player.buff(1126)", -- Mark of the Wild
+      	"!player.buff(90363)", -- Embrace of the Shale Spider
+      	"!player.buff(20217)" -- Blessing of Kings
     	}
  	},
 -----------------------------------------------------------------------------------------------------------------------------
@@ -72,6 +72,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -- Cooldowns ---------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "123904", {"player.spell(123904).exists", "modifier.cooldowns"}}, -- Xuen
+	{ "#gloves" },
 -----------------------------------------------------------------------------------------------------------------------------
 -- Main Rotation ------------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -106,21 +107,21 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 	}}, 	
 	{ "100780", "player.energy >= 40"},-- Jab
 -----------------------------------------------------------------------------------------------------------------------------
--- SoO Taunt Events --------------------------------------------------------------------------------------------------------- 
+-- SoO autotaunt Events --------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
-	{ "115546", {"target.id(71543)", "!player.debuff(143436)", "focus.debuff(143436).count >= 1", "toggle.taunt"}}, 	-- Immerseus 1 Stack
-	{ "115546", {"target.id(72276)", "!player.debuff(146124)", "focus.debuff(146124).count >= 4", "toggle.taunt"}}, 	-- Norushen 4 Stacks
-	{ "115546", {"target.id(71734)", "!player.debuff(144358)", "focus.debuff(144358).count >= 1", "toggle.taunt"}}, 	-- Sha of Pride 1 Stack
-	{ "115546", {"target.id(71466)", "!player.debuff(144467)", "focus.debuff(144467).count >= 3", "toggle.taunt"}}, 	-- Iron Juggernaut 3 Stacks
-	{ "115546", {"target.id(71859)", "!player.debuff(144215)", "focus.debuff(144215).count >= 5", "toggle.taunt"}}, 	-- Dark Shamans 5 Stacks
-	{ "115546", {"target.id(71515)", "!player.debuff(143494)", "focus.debuff(143494).count >= 3", "toggle.taunt"}}, 	-- Nazgrim 3 Stacks
-	{ "115546", {"target.id(71454)", "!player.debuff(142990)", "focus.debuff(142990).count >= 13", "toggle.taunt"}}, 	-- Malkorok 13 Stacks
-	{ "115546", {"target.id(71504)", "!player.debuff(143385)", "focus.debuff(143385).count >= 3", "toggle.taunt"}},		-- Blackfuse 3 Stacks !!!
-	{ "115546", {"target.id(71529)", "!player.debuff(143426)", "focus.debuff(143426).count >= 3", "toggle.taunt"}}, 	-- Thok 3 Stacks Fearsome Roar
-	{ "115546", {"target.id(71529)", "!player.debuff(143780)", "focus.debuff(143780).count >= 3", "toggle.taunt"}}, 	-- Thok 3 Stacks Acid Breath
-	{ "115546", {"target.id(71529)", "!player.debuff(143773)", "focus.debuff(143773).count >= 3", "toggle.taunt"}}, 	-- Thok 3 Stacks Freezing Breath
-	{ "115546", {"target.id(71865)", "!player.debuff(145183)", "focus.debuff(145183).count >= 3", "toggle.taunt"}}, 	-- Garrosh 3 Stacks Gripping Despair
-	{ "115546", {"target.id(71865)", "!player.debuff(145195)", "focus.debuff(145195).count >= 3", "toggle.taunt"}}, 	-- Garrosh 3 Stacks Empowered Gripping Despair
+	{ "115546", {"target.id(71543)", "!player.debuff(143436)", "focus.debuff(143436).count >= 1", "toggle.autotaunt"}}, 	-- Immerseus 1 Stack
+	{ "115546", {"target.id(72276)", "!player.debuff(146124)", "focus.debuff(146124).count >= 4", "toggle.autotaunt"}}, 	-- Norushen 4 Stacks
+	{ "115546", {"target.id(71734)", "!player.debuff(144358)", "focus.debuff(144358).count >= 1", "toggle.autotaunt"}}, 	-- Sha of Pride 1 Stack
+	{ "115546", {"target.id(71466)", "!player.debuff(144467)", "focus.debuff(144467).count >= 3", "toggle.autotaunt"}}, 	-- Iron Juggernaut 3 Stacks
+	{ "115546", {"target.id(71859)", "!player.debuff(144215)", "focus.debuff(144215).count >= 5", "toggle.autotaunt"}}, 	-- Dark Shamans 5 Stacks
+	{ "115546", {"target.id(71515)", "!player.debuff(143494)", "focus.debuff(143494).count >= 3", "toggle.autotaunt"}}, 	-- Nazgrim 3 Stacks
+	{ "115546", {"target.id(71454)", "!player.debuff(142990)", "focus.debuff(142990).count >= 13", "toggle.autotaunt"}}, 	-- Malkorok 13 Stacks
+	{ "115546", {"target.id(71504)", "!player.debuff(143385)", "focus.debuff(143385).count >= 3", "toggle.autotaunt"}},		-- Blackfuse 3 Stacks !!!
+	{ "115546", {"target.id(71529)", "!player.debuff(143426)", "focus.debuff(143426).count >= 3", "toggle.autotaunt"}}, 	-- Thok 3 Stacks Fearsome Roar
+	{ "115546", {"target.id(71529)", "!player.debuff(143780)", "focus.debuff(143780).count >= 3", "toggle.autotaunt"}}, 	-- Thok 3 Stacks Acid Breath
+	{ "115546", {"target.id(71529)", "!player.debuff(143773)", "focus.debuff(143773).count >= 3", "toggle.autotaunt"}}, 	-- Thok 3 Stacks Freezing Breath
+	{ "115546", {"target.id(71865)", "!player.debuff(145183)", "focus.debuff(145183).count >= 3", "toggle.autotaunt"}}, 	-- Garrosh 3 Stacks Gripping Despair
+	{ "115546", {"target.id(71865)", "!player.debuff(145195)", "focus.debuff(145195).count >= 3", "toggle.autotaunt"}}, 	-- Garrosh 3 Stacks Empowered Gripping Despair
 -----------------------------------------------------------------------------------------------------------------------------
 -- OOC Hotkeys -------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -138,10 +139,10 @@ ProbablyEngine.toggle.create(
     'Defensive CDs Toggle',
 	'Enable or Disable usage of Guard / Fortifying Brew')
 ProbablyEngine.toggle.create(
-    'taunt',
+    'autotaunt',
     'Interface\\Icons\\Spell_Magic_PolymorphRabbit.png‎',
-    'SoO Auto Taunt Toggle',
-	'Enable or Disable Auto Taunt in SoO\nImmerseus 1 Stack\nNorushen 4 Stacks\nSha of Pride 1 Stack\nIron Juggernaut 3 Stacks\nDark Shamans 5 Stacks\nGeneral Nazgrim 3 Stacks\nMalkorok 13 Stacks\nBlackfuse 3 Stacks\nThok 3 Stacks\nGarrosh 3 Stacks\nSET 2ND TANK TO FOCUS')
+    'SoO Auto autotaunt Toggle',
+	'Enable or Disable Auto autotaunt in SoO\nImmerseus 1 Stack\nNorushen 4 Stacks\nSha of Pride 1 Stack\nIron Juggernaut 3 Stacks\nDark Shamans 5 Stacks\nGeneral Nazgrim 3 Stacks\nMalkorok 13 Stacks\nBlackfuse 3 Stacks\nThok 3 Stacks\nGarrosh 3 Stacks\nSET 2ND TANK TO FOCUS')
 ProbablyEngine.toggle.create(
     'kegsmash',
     'Interface\\Icons\\achievement_brewery_2.png‎',

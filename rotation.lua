@@ -16,7 +16,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "pause", "modifier.lshift"},
  	{ "115180", "modifier.lalt", "ground" }, -- Dizzying Haze
- 	{ "115315", "modifier.lcontrol", "ground" }, -- Black Ox Statue
+ 	{ "115315", "modifier.rcontrol", "ground" }, -- Black Ox Statue
 -----------------------------------------------------------------------------------------------------------------------------
 -- Buffs -------------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -93,6 +93,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 	{ "115203", {"player.health <= 35", "toggle.def" }, "player" }, -- Fortifying Brew
 	{ "123402", {"player.health <= 50", "toggle.def" }, "player" }, -- Guard
 	{ "115450", "player.dispellable(115450)", "player"}, -- Self Dispell
+   --[[
    { "122783", { -- Diffuse Magic at < 50% health and when FB buff is not up
      "player.health < 50",
      "!player.buff(115203)" --FB
@@ -101,6 +102,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
      "player.health < 50",
      "!player.buff(115203)" --FB
    }},
+   ]]--
 
    { "117368", "target.disarmable" }, -- Grapple Weapon
    -- Ring of Peace when Grapple Weapon debuff is not present, is on CD, and the target is in melee range
@@ -188,7 +190,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -----------------------------------------------------------------------------------------------------------------------------
 {
 	{ "115180", "modifier.lalt", "ground" }, -- Dizzying Haze
- 	{ "115315", "modifier.lcontrol", "ground" }, -- Black Ox Statue
+ 	{ "115315", "modifier.rcontrol", "ground" }, -- Black Ox Statue
 	{ "115921", -- Legacy of the Emperor
     	{
       	"!player.buff(117666)", -- Legacy of the Emperor Buff

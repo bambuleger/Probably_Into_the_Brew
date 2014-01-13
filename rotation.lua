@@ -16,7 +16,7 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "pause", "modifier.lshift"},
  	{ "115180", "modifier.lalt", "ground" }, -- Dizzying Haze
- 	{ "115315", "modifier.rcontrol", "ground" }, -- Black Ox Statue
+ 	{ "115315", "modifier.lcontrol", "ground" }, -- Black Ox Statue
 -----------------------------------------------------------------------------------------------------------------------------
 -- Buffs -------------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -46,21 +46,46 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 -----------------------------------------------------------------------------------------------------------------------------
 -- Interrupts --------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
-	{ "117368", "modifier.interrupts" }, --Grapple Weapon (Disarm)
-	{ "116705", "modifier.interrupts" }, --Spear Hand Strike
+  -- Interrupts
+  {{
+    { "115078", { -- Paralysis when SHS, Ring of Peace, and Quaking Palm are all on CD
+       "!target.debuff(Spear Hand Strike)",
+       "player.spell(116705).cooldown > 0",
+       "player.spell(116844).cooldown > 0",
+       "player.spell(107079).cooldown > 0",
+       "!modifier.last(116705)"
+    }},
+    { "116844", { -- Ring of Peace when SHS is on CD
+       "!target.debuff(Spear Hand Strike)",
+       "player.spell(116705).cooldown > 0",
+       "!modifier.last(116705)"
+    }},
+    { "107079", { -- Quaking Palm when SHS and Ring of Peace are on CD
+       "!target.debuff(Spear Hand Strike)",
+       "player.spell(116705).cooldown > 0",
+       "player.spell(116844).cooldown > 0",
+       "!modifier.last(116705)"
+    }},
+    { "116705" }, -- Spear Hand Strike
+  }, "target.interruptAt(50)" },
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- Selfheal Talents T2 ------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
-	{ "115098", { "player.spell(115098).exists", "player.health < 85" }}, -- Chi Wave
-	{ "123986", { "player.spell(123986).exists", "player.health < 85" }}, -- Chi Burst
-	{ "124081", { "player.spell(124081).exists", "player.buff(124081)" }, "focus"}, -- Zen Sphere on focus if already on player
-	{ "124081", { "player.spell(124081).exists", "!player.buff(124081)" }, "player"}, -- Zen Sphere on player
-	
-	{ "!/run UseItemByName(5512)", "@intoBrew.Healthstone"}, --Healthstone
+	{ "115098", "player.health < 85" }, -- Chi Wave
+	{ "123986", "player.health < 85" }, -- Chi Burst
+	{ "124081", { "player.buff(124081)" }, "focus"}, -- Zen Sphere on focus if already on player
+	{ "124081", { "!player.buff(124081)" }, "player"}, -- Zen Sphere on player
+	{ "#5512", "player.health < 40"}, --Healthstone when less than 40% health
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- Stagger ------------------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
 	{ "119582", "@intoBrew.DrinkStagger" }, 
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- Defensives---------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -68,11 +93,44 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 	{ "115203", {"player.health <= 35", "toggle.def" }, "player" }, -- Fortifying Brew
 	{ "123402", {"player.health <= 50", "toggle.def" }, "player" }, -- Guard
 	{ "115450", "player.dispellable(115450)", "player"}, -- Self Dispell
+   { "122783", { -- Diffuse Magic at < 50% health and when FB buff is not up
+     "player.health < 50",
+     "!player.buff(115203)" --FB
+   }},
+   { "122278", { -- Dampen Harm at < 50% health and when FB buff is not up
+     "player.health < 50",
+     "!player.buff(115203)" --FB
+   }},
+
+   { "117368", "target.disarmable" }, -- Grapple Weapon
+   -- Ring of Peace when Grapple Weapon debuff is not present, is on CD, and the target is in melee range
+   { "116844", { "!player.buff(123232)", "player.spell(117368).cooldown > 0", "target.range <= 5" }},
+
+   { "137562", "player.state.disorient" }, -- 137562 = Nimble Brew
+   { "137562", "player.state.fear" },
+   { "137562", "player.state.stun" },
+   { "137562", "player.state.root" },
+   { "137562", "player.state.horror" },
+   { "137562", "player.state.snare" },
+
+   { "116841", "player.state.disorient" }, -- 116841 = Tiger's Lust
+   { "116841", "player.state.stun" },
+   { "116841", "player.state.root" },
+   { "116841", "player.state.snare" },
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- Cooldowns ---------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
-	{ "123904", {"player.spell(123904).exists", "modifier.cooldowns"}}, -- Xuen
-	{ "#gloves" },
+   {{
+      { "121279" }, -- Lifeblood
+      { "26297" }, -- Berserking
+      { "20572" }, -- Blood Fury
+      { "33697" }, -- Blood Fury
+      { "33702" }, -- Blood Fury
+   	{ "123904" }, -- Xuen
+   	{ "#gloves" },
+   }, "modifier.cooldowns" },
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- Main Rotation ------------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -102,10 +160,11 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 	{ "116847", {
 		"modifier.multitarget" ,
 		"!player.buff(116847)",
-		"player.spell(116847).exists",
 		"player.buff(115307).duration >= 3",		
 	}}, 	
 	{ "100780", "player.energy >= 40"},-- Jab
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- SoO autotaunt Events --------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -122,13 +181,24 @@ ProbablyEngine.rotation.register_custom(268, "|cFF32ff84Into the Brew|r", {
 	{ "115546", {"target.id(71529)", "!player.debuff(143773)", "focus.debuff(143773).count >= 3", "toggle.autotaunt"}}, 	-- Thok 3 Stacks Freezing Breath
 	{ "115546", {"target.id(71865)", "!player.debuff(145183)", "focus.debuff(145183).count >= 3", "toggle.autotaunt"}}, 	-- Garrosh 3 Stacks Gripping Despair
 	{ "115546", {"target.id(71865)", "!player.debuff(145195)", "focus.debuff(145195).count >= 3", "toggle.autotaunt"}}, 	-- Garrosh 3 Stacks Empowered Gripping Despair
+},	
+
 -----------------------------------------------------------------------------------------------------------------------------
--- OOC Hotkeys -------------------------------------------------------------------------------------------------------------- 
+-- OOC ---------------------------------------------------------------------------------------------------------------------- 
 -----------------------------------------------------------------------------------------------------------------------------
-},	{
+{
 	{ "115180", "modifier.lalt", "ground" }, -- Dizzying Haze
- 	{ "115315", "modifier.rcontrol", "ground" }, -- Black Ox Statue
-	},
+ 	{ "115315", "modifier.lcontrol", "ground" }, -- Black Ox Statue
+	{ "115921", -- Legacy of the Emperor
+    	{
+      	"!player.buff(117666)", -- Legacy of the Emperor Buff
+      	"!player.buff(1126)", -- Mark of the Wild
+      	"!player.buff(90363)", -- Embrace of the Shale Spider
+      	"!player.buff(20217)" -- Blessing of Kings
+    	}
+ 	},
+},
+
 ----------------------------------------------------------------------------------------------------------------------
 -- Custom Toggle ------------------------------------------------------------------------------------------------------------ 
 -----------------------------------------------------------------------------------------------------------------------------
